@@ -5,10 +5,29 @@
 <input type="text" ref="name">
 <button @click='handleClick'>Click me</button>
 <div v-if="showModal">
-<Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
-</div>
-<button @click="toggleModal">Show Modal</button>
+<Modal theme="sale" @close="toggleModal" >
+<template v-slot:links>
+  <a href="#">sign up now</a>
+  <a href="#">more info</a>
+</template>
 
+  <h1>Ninjia Giveaway</h1>
+  <p>Grab your Ninja swag for half price</p>
+
+
+
+</Modal>
+</div>
+<button @click="toggleModal">Sales</button>
+
+<div v-if="showModalTwo">
+<Modal @close="toggleModalTwo" >
+  <h1>Sign up to newsletter</h1>
+  <p>For updates and promo codes</p>
+
+</Modal>
+</div>
+<button @click="toggleModalTwo">Contact</button>
 </template>
 
 <script>
@@ -22,7 +41,8 @@ data(){
     title: 'My First Vue Project',
     header: "Sign up for the Giveaway!",
     text:"Grab your Ninja swag for half price.",
-    showModal: false
+    showModal: false,
+    showModalTwo:false
   }
 },
 methods: {
@@ -34,6 +54,9 @@ methods: {
   },
   toggleModal(){
     this.showModal=!this.showModal
+  },
+   toggleModalTwo(){
+    this.showModalTwo=!this.showModalTwo
   }
 }
 }
