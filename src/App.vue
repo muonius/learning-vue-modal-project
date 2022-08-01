@@ -3,7 +3,7 @@
 <br>
 <input type="text" ref="name">
 <button @click='handleClick'>Click me</button>
-<Modal/>
+<Modal header="Sign up for the Giveaway!" text="Grab your Ninja swag for half price." />
 </template>
 
 <script>
