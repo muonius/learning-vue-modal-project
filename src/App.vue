@@ -3,7 +3,7 @@
 <br>
 <input type="text" ref="name">
 <button @click='handleClick'>Click me</button>
-<Modal header="Sign up for the Giveaway!" text="Grab your Ninja swag for half price." />
+<Modal :header="header" :text="text" theme="sale" />
 </template>
 
 <script>
@@ -14,7 +14,9 @@ export default {
   components: {Modal},
 data(){
   return{
-    title: 'My First Vue Project'
+    title: 'My First Vue Project',
+    header: "Sign up for the Giveaway!",
+    text:"Grab your Ninja swag for half price."
   }
 },
 methods: {
