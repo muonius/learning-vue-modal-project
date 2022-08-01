@@ -1,9 +1,14 @@
 <template>
 <h1>{{title}}</h1>
+<p>Welcome...</p>
 <br>
 <input type="text" ref="name">
 <button @click='handleClick'>Click me</button>
-<Modal :header="header" :text="text" theme="sale" />
+<div v-if="showModal">
+<Modal :header="header" :text="text" theme="sale" @close="toggleModal" />
+</div>
+<button @click="toggleModal">Show Modal</button>
+
 </template>
 
 <script>
@@ -16,7 +21,8 @@ data(){
   return{
     title: 'My First Vue Project',
     header: "Sign up for the Giveaway!",
-    text:"Grab your Ninja swag for half price."
+    text:"Grab your Ninja swag for half price.",
+    showModal: false
   }
 },
 methods: {
@@ -25,6 +31,9 @@ methods: {
     this.$refs.name.classList.add('active')
     // mouse focus on input field
     this.$refs.name.focus()
+  },
+  toggleModal(){
+    this.showModal=!this.showModal
   }
 }
 }
